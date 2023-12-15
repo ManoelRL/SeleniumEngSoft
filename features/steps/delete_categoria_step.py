@@ -24,6 +24,6 @@ def step_impl(context):
 
 @then(u'o resultado será deletado')
 def step_impl(context):
-    context.testeDeleteCategoria.conferir_insercao()
+    context.testeDeleteCategoria.conferir_delete()
     time.sleep(2)
     context.testeDeleteCategoria.fechar_navegador()
