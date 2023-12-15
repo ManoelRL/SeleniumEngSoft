@@ -10,6 +10,8 @@ def main():
     time.sleep(5)
     testeCategoria.click_create_row_button()
     testeCategoria.preencher_formulario()
+    time.sleep(8)
+    testeCategoria.conferir_insercao()
         
 
 

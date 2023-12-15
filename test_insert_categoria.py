@@ -43,7 +43,7 @@ class TestInsertCategoria:
         time.sleep(1)
 
     def conferir_insercao(self):
-        if self.driver.find_element(By.XPATH, "//*[text()='{self.nome}']"):
+        if self.driver.find_element(By.XPATH, f"//div[text()='{self.nome}']"):
             print("Sucesso!")
         else:
             print("Falhou!")
