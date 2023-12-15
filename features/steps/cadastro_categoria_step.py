@@ -10,15 +10,15 @@ def step_impl(context, nome, descricao):
     context.testeCategoria.abrir_site()
     time.sleep(5)
     
-@when(u'eu clicar em {acao}')
-def step_impl(context, acao):
+@when(u'eu clicar em incluir')
+def step_impl(context):
 
     context.testeCategoria.click_create_row_button()
     context.testeCategoria.preencher_formulario()
     time.sleep(8)
 
 
-@then(u'o resultado será {resultado}')
+@then(u'o resultado será incluido')
 def step_impl(context):
     context.testeCategoria.conferir_insercao()
     time.sleep(2)

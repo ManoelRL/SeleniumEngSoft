@@ -3,8 +3,8 @@ Feature: CRUD de Categoria
 
   Scenario Outline: Create Categoria
     Given eu tenho <nome> e <desc>
-    When eu clicar em <acao>
-    Then o resultado será <resultado>
+    When eu clicar em incluir
+    Then o resultado será incluido.
 
     Examples:
       |nome      |desc                                         |acao      |resultado                   |
