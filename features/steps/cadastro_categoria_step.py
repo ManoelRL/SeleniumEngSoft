@@ -18,7 +18,7 @@ def step_impl(context):
     time.sleep(8)
 
 
-@then(u'o resultado será incluido')
+@then(u'o resultado será incluido.')
 def step_impl(context):
     context.testeCategoria.conferir_insercao()
     time.sleep(2)

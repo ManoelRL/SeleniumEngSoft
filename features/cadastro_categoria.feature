@@ -7,6 +7,5 @@ Feature: CRUD de Categoria
     Then o resultado será incluido.
 
     Examples:
-      |nome      |desc                                         |acao      |resultado                   |
-      |Procon  |Programa de Proteção e Defesa do Consumidor    |Incluir    |Sucesso.                   |
-      
+      | nome   | desc                                        | acao    | resultado |
+      | Procon | Programa de Proteção e Defesa do Consumidor | Incluir | Sucesso.  |

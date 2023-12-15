@@ -29,12 +29,9 @@ class TestInsertCategoria():
 
     def abrir_site(self):
         self.driver.get(self.SITE_LINK["page_categoria"])
-        # time.sleep(20)
 
 
     def click_create_row_button(self):
-        #  button = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.driver.find_element(By.XPATH, self.SITE_MAP["create_row_button"])))
-        #  button.click()
         self.driver.find_element(By.XPATH, self.SITE_MAP["create_row_button"]).click()
 
     def preencher_formulario(self):
@@ -46,15 +43,7 @@ class TestInsertCategoria():
         time.sleep(1)
 
     def conferir_insercao(self):
-        if self.driver.find_element(By.XPATH, f"//div[text()='{self.nome}']"):
-            print("Sucesso!")
-        else:
-            print("Falhou!")
+        assert self.driver.find_element(By.XPATH, f"//div[text()='{self.nome}']").is_displayed() is True
 
     def fechar_navegador(self):
         self.driver.quit()
-
-
-# teste = TestInsertCategoria("Testando", "Descricaoo")
-
-# teste.abrir()
