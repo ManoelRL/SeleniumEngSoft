@@ -5,7 +5,7 @@ import time
 
 testeDeleteCategoria = None
 
-@given(u'eu tenho {nome}')
+@given(u'eu tenho {nome: s}')
 def step_impl(context, nome):
     context.testeDeleteCategoria = TestDeleteCategoria(nome)
     context.testeDeleteCategoria.abrir_site()
