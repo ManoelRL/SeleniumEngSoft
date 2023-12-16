@@ -34,8 +34,11 @@ class TestUpdateCategoria:
         self.driver.find_element(By.XPATH, self.SITE_MAP["click_data"]).click()
 
     def preencher_formulario(self, nomeAtualizado):
+        self.driver.find_element(By.XPATH, self.SITE_MAP["update_forms"]["nome_input"]).clear()
+        time.sleep(1)
         self.driver.find_element(By.XPATH, self.SITE_MAP["update_forms"]["nome_input"]).send_keys(nomeAtualizado)
         time.sleep(1)
+        self.nome = nomeAtualizado
         self.driver.find_element(By.XPATH, self.SITE_MAP["save_button"]).click()
         time.sleep(1)
 
