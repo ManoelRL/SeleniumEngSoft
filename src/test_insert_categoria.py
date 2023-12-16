@@ -2,6 +2,7 @@ from selenium import webdriver
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import NoSuchElementException
 # from selenium.webdriver.support.wait import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
 
@@ -21,15 +22,23 @@ class TestInsertCategoria():
                              "nome_input": "/html/body/div[2]/div/div/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div/div/input",
                              "descricao_input": "/html/body/div[2]/div/div/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div/div/div/input",
                              "save_button": "/html/body/div[2]/div/div/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/div[1]/div/div[2]/div/div/button"
-                         }}
+                         },
+                         "data_row": f"//div[text()='{self.nome}']"}
         
         self.options = Options()
         self.options.add_argument("--headless")
         self.driver = webdriver.Chrome(options=self.options)
 
+    # def if_exists(self, nome):
+    #     try:
+    #         assert self.driver.find_element(By.XPATH, self.SITE_MAP["data_row"]).text.lower() == nome.lower()
+    #     except NoSuchElementException:
+    #         pass
+    #     finally:
+    #         self.fechar_navegador()
+
     def abrir_site(self):
         self.driver.get(self.SITE_LINK["page_categoria"])
-
 
     def click_create_row_button(self):
         self.driver.find_element(By.XPATH, self.SITE_MAP["create_row_button"]).click()
