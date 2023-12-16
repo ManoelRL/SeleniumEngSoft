@@ -1,12 +1,14 @@
 from selenium import webdriver
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import NoSuchElementException
 # from selenium.webdriver.support.wait import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
 
 import time
 
-class TestInsertCategoria:
+class TestInsertCategoria():
     def __init__(self, nome, descricao):
 
         self.nome = nome
@@ -20,18 +22,25 @@ class TestInsertCategoria:
                              "nome_input": "/html/body/div[2]/div/div/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/div[2]/div/div/div[1]/div/div/div/input",
                              "descricao_input": "/html/body/div[2]/div/div/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/div[2]/div/div/div[2]/div/div/div/input",
                              "save_button": "/html/body/div[2]/div/div/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/div[1]/div/div[2]/div/div/button"
-                         }}
+                         },
+                         "data_row": f"//div[text()='{self.nome}']"}
         
-        self.driver = webdriver.Chrome()
+        self.options = Options()
+        self.options.add_argument("--headless")
+        self.driver = webdriver.Chrome(options=self.options)
+
+    # def if_exists(self, nome):
+    #     try:
+    #         assert self.driver.find_element(By.XPATH, self.SITE_MAP["data_row"]).text.lower() == nome.lower()
+    #     except NoSuchElementException:
+    #         pass
+    #     finally:
+    #         self.fechar_navegador()
 
     def abrir_site(self):
         self.driver.get(self.SITE_LINK["page_categoria"])
-        # time.sleep(20)
-
 
     def click_create_row_button(self):
-        #  button = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.driver.find_element(By.XPATH, self.SITE_MAP["create_row_button"])))
-        #  button.click()
         self.driver.find_element(By.XPATH, self.SITE_MAP["create_row_button"]).click()
 
     def preencher_formulario(self):
@@ -43,15 +52,7 @@ class TestInsertCategoria:
         time.sleep(1)
 
     def conferir_insercao(self):
-        if self.driver.find_element(By.XPATH, f"//div[text()='{self.nome}']"):
-            print("Sucesso!")
-        else:
-            print("Falhou!")
+        assert self.driver.find_element(By.XPATH, f"//div[text()='{self.nome}']").is_displayed() is True
 
     def fechar_navegador(self):
         self.driver.quit()
-
-
-# teste = TestInsertCategoria("Testando", "Descricaoo")
-
-# teste.abrir()
