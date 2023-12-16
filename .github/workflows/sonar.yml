@@ -20,6 +20,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Install SonarQube Scanner
+      run: |
+        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.0.2311-linux.zip
+        unzip sonar-scanner-cli-4.6.0.2311-linux.zip
+        export PATH="$PATH:$PWD/sonar-scanner-cli-4.6.0.2311-linux/bin"
+
     - name: Run SonarQube analysis
       run: |
         sonar-scanner \
