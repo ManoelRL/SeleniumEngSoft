@@ -25,3 +25,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
+    - name: Run SonarQube analysis
+      run: |
+        SonarSource/sonarcloud-github-action@master \
+          -Dsonar.projectKey=ManoelRL_SeleniumEngSoft \
+          -Dsonar.organization=manoelrl \
+          -Dsonar.sources=.
