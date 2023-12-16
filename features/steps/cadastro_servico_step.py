@@ -18,7 +18,7 @@ def step_impl(context):
     time.sleep(8)
 
 
-@then(u'o resultado será servico incluido')
+@then(u'o resultado sera servico incluido')
 def step_impl(context):
     context.testeServico.conferir_insercao()
     time.sleep(2)
