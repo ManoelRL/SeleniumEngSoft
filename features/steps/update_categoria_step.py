@@ -17,10 +17,11 @@ def step_impl(context, nomeAtualizado):
     context.testeUpdateCategoria.click_data_row()
     time.sleep(1)
     context.testeUpdateCategoria.preencher_formulario(nomeAtualizado)
+    time.sleep(2)
 
 
 @then(u'eu tenho a categoria atualizada')
 def step_impl(context):
     context.testeUpdateCategoria.conferir_atualizacao()
     time.sleep(2)
-    context.fechar_navegador()
+    context.testeUpdateCategoria.fechar_navegador()

@@ -29,14 +29,6 @@ class TestInsertCategoria():
         self.options.add_argument("--headless")
         self.driver = webdriver.Chrome(options=self.options)
 
-    # def if_exists(self, nome):
-    #     try:
-    #         assert self.driver.find_element(By.XPATH, self.SITE_MAP["data_row"]).text.lower() == nome.lower()
-    #     except NoSuchElementException:
-    #         pass
-    #     finally:
-    #         self.fechar_navegador()
-
     def abrir_site(self):
         self.driver.get(self.SITE_LINK["page_categoria"])
 
