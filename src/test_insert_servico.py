@@ -26,7 +26,10 @@ class TestInsertServico:
                              "save_button": "/html/body/div[2]/div/div/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/div[1]/div/div[2]/div/div/button"
                          }}
         
-        self.driver = webdriver.Chrome()
+        self.options = Options()
+        self.options.add_argument("--headless")
+        self.driver = webdriver.Chrome(options=self.options)
+
 
     def abrir_site(self):
         self.driver.get(self.SITE_LINK["page_servico"])

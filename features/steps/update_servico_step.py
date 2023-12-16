@@ -14,14 +14,13 @@ def step_impl(context, desc):
     
 @when(u'eu altero para {descAtt}')
 def step_impl(context, descAtt):
-    time.sleep(4)
     context.testeUpdateServico.click_data_row()
     time.sleep(2)
     context.testeUpdateServico.preencher_formulario(descAtt)
-
+    time.sleep(8)
 
 @then(u'o resultado sera servico atualizado')
 def step_impl(context):
     context.testeUpdateServico.conferir_atualizacao()
     time.sleep(2)
-    context.fechar_navegador()
+    context.testeUpdateServico.fechar_navegador()
