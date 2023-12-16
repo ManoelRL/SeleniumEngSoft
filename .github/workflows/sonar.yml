@@ -25,7 +25,7 @@ jobs:
     
     - name: Run SonarQube analysis
       run: |
-        sonar-scanner-X \
+        sonar-scanner -X \
           -Dsonar.projectKey=ManoelRL_SeleniumEngSoft \
           -Dsonar.organization=manoelrl \
           -Dsonar.sources=.
